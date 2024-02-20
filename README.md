@@ -1,7 +1,7 @@
 # Gym Pal
 
 ## Description
-Gym Pal is a full-stack web application designed to serve as a utility for users to manage and keep track of their fitness routines. Users can create, track, and log workouts. Users are also able browse a library containing 200+ exercises, filter them by muscle group, and add them to their own custom workouts. The live deployed web app can be found here:  [Gym Pal](https://website-name.com)
+Gym Pal is a full-stack web application designed to serve as a utility for users to manage and keep track of their fitness routines. Users can create, track, and log workouts. Users are also able browse a library containing 200+ exercises, filter them by muscle group, and add them to their own custom workouts. The live deployed web app can be found here:  [Gym Pal](https://gympal-q64r.onrender.com/)
 
 ## Features
 
