@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3 text-center">{{ workout.name }}</h2>
+    <div class="row">
+        {% for workout_exercise, exercise in workout_exercises %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ exercise.name }}</h5>
+                    <!-- Assuming each exercise object has 'sets' and 'reps' attributes -->
+                    <p class="card-text">Sets: {{ workout_exercise.sets }}</p>
+                    <p class="card-text">Reps: {{ workout_exercise.reps }}</p>
+                    <a href="/exercises/search?query={{ exercise.name }}" class="btn btn-primary">View Exercise</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

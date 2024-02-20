@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-4">Build Your Workout</h2>
+    <div class="row mb-4">
+        <div class="col-md-4 mb-3">
+            <input type="text" id="workout-name" class="form-control" placeholder="Enter workout name">
+        </div>
+        <div class="col-md-4 mb-3">
+            <input type="text" id="exercises-search" class="form-control" placeholder="Search exercises">
+        </div>
+        <div class="col-md-4 mb-3">
+            <select id="muscle-group-filter" class="form-select">
+                <option value="">Filter by muscle group</option>
+                {% for muscle_group in muscle_groups %}
+                <option value="{{ muscle_group }}">{{ muscle_group }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="col mb-4">
+        <div class="card">
+            <div class="card-header">
+                Available Exercises
+            </div>
+            <ul id="exercises-results" class="list-group list-group-flush">
+                <!-- Search results will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                Your Workout Draft
+            </div>
+            <ul class="list-group list-group-flush" id="workout-list">
+                <!-- Added exercises with sets and reps will go here -->
+            </ul>
+        </div>
+    </div>
+
+    <button id="save-workout" class="btn btn-primary mt-2 mb-4 float-right save-workout">Save Workout</button>
+</div>
+{% endblock %}

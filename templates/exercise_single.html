@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout App</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+
+
+
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">Gym Pal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link mr-2" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link mr-2" href="/workout_log">Workout Log<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link mr-2" href="/workouts">Workout Builder<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link mr-2" href="/exercises">Exercise Library<span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link mr-2" href="/profile">Profile<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        {% block content %}
+        <div class="container mt-4">
+            <h2 class="mb-3">Exercise Library</h2>
+            <a href="/exercises" class="btn btn-primary mb-3">Back</a>
+            <div class="row exercise-list">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body" id="exercise-card">
+                            <div class="exercise-default">
+                                <h5 class="card-title">{{ exercise.name }}</h5>
+                                <div class="card-img-bottom">
+                                    <img src="/static/images/{{exercise.muscle}}.png" class="card-img-right ml-4"
+                                        alt="{{exercise.muscle}}">
+                                </div>
+                            </div>
+                            <div class="exercise-details d-none">
+                                <p><b>Type</b>: {{ exercise.type }}</p>
+                                <p><b>Difficulty</b>: {{ exercise.difficulty }}</p>
+                                <p><b>instructions</b>: {{ exercise.instructions }}</p>
+                            </div>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm mt-4 toggle-details">
+                                View Details
+                            </a>
+                            <a href="javascript:void(0);" class="btn btn-success btn-sm mt-4 add-to-workout">
+                                + to Workout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.5/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- For some very odd reason the absolute path does not work here need to omit ".."-->
+    <script src="/static/js/exercises.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,334 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #C1C8E4;
+    /* Light violet background */
+    color: #333;
+    /* Dark text for contrast */
+}
+
+/* Navigation Bar Styling */
+.navbar {
+    background-color: #84CEEB
+        /* light blue background */
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #8860D0 !important;
+    font-weight: bold;
+    /* White text */
+}
+
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+    color: #FFFFFF !important;
+    /* Lighter blue for hover state */
+}
+
+/* Active nav item */
+.navbar-nav .active .nav-link,
+.navbar-nav .nav-item:hover .nav-link {
+    color: #FFFFFF !important;
+    background-color: #5AB9EA;
+    /* Light blue background for active/hover items */
+    border-radius: 5px;
+}
+
+/* Homepage Enhancements */
+header.text-center {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: #5680E9;
+    /* Theme color for the main header */
+    margin-bottom: 1rem;
+}
+
+.card {
+    background-color: #F7F7F7;
+    /* Light background for cards */
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+.card-title {
+    color: #8860D0;
+    /* Violet theme color */
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1.5rem;
+    color: #5680E9;
+    /* Blue theme color */
+}
+
+/* Additional Styles for New Elements */
+.welcome-img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    /* Space below the image */
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+    .welcome-img {
+        margin-top: 1rem;
+    }
+}
+
+/* Main Content Styling */
+.container {
+    background-color: #FFFFFF;
+    /* White background for content */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #8860D0;
+    /* Violet background */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #5680E9;
+    /* Dark blue background for hover */
+}
+
+/* Custom button for removing exercises */
+.btn-danger {
+    background-color: #E95568;
+    /* Soft red */
+}
+
+.add-to-workout,
+.save-workout {
+    color: #FFFFFF;
+    background-color: #84CEEB;
+}
+
+/* Utility classes */
+.text-primary {
+    color: #5680E9 !important;
+    /* Dark blue text */
+}
+
+#search-suggestions,
+#search-suggestions li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    /* Removes bullet points */
+}
+
+
+/* Workout List Styling */
+#workout-list {
+    list-style: none;
+    padding: 0;
+}
+
+#workout-list li {
+    background-color: #F0F0F0;
+    border: 1px solid #E0E0E0;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#workout-list li:hover {
+    background-color: #E0E0E0;
+}
+
+.workout-item {
+    display: block;
+    padding: 12px 20px;
+    color: #5680E9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.workout-item:hover {
+    color: #8860D0;
+}
+
+/* Search and Grouping */
+.search-container {
+    margin-bottom: 20px;
+}
+
+#search-input {
+    flex-grow: 1;
+    /* Ensure the search input fills the available space */
+}
+
+.btn-outline-success {
+    border-color: #5680E9;
+    color: #5680E9;
+}
+
+.btn-outline-success:hover {
+    background-color: #5680E9;
+    color: #FFFFFF;
+}
+
+/* Muscle Group Buttons */
+.btn-outline-primary {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-color: #8860D0;
+    color: #8860D0;
+}
+
+.btn-outline-primary:hover {
+    background-color: #8860D0;
+    color: #FFFFFF;
+}
+
+.btn-info {
+    background-color: #5AB9EA;
+    border-color: #5AB9EA;
+}
+
+.btn-info:hover {
+    background-color: #84CEEB;
+}
+
+/* Exercise Cards */
+.card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    /* Slight scale effect on hover */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    /* Stack content vertically */
+}
+
+.card-img-bottom {
+    width: 100%;
+    /* Adjust as necessary */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /* Add space below the image */
+}
+
+.exercise-default,
+.exercise-details {
+    flex-grow: 1;
+    /* Allow text content to fill available space */
+}
+
+.card-actions {
+    margin-top: auto;
+    /* Push actions to the bottom of the card */
+    display: flex;
+    justify-content: space-between;
+    /* Space out buttons */
+    padding: 10px 0;
+    /* Add some padding above the buttons */
+}
+
+/* Adjust button styles if needed */
+.toggle-details,
+.add-to-workout {
+    flex-basis: 48%;
+    /* Each button takes up nearly half the card width */
+    margin: 0;
+    /* Remove margins if any */
+}
+
+.toggle-details {
+    left: 15px;
+    background-color: #C1C8E4;
+    border-color: #C1C8E4;
+}
+
+.add-to-workout {
+    background-color: #8860D0;
+    border-color: #8860D0;
+}
+
+.toggle-details:hover,
+.add-to-workout:hover {
+    opacity: 0.9;
+}
+
+/* Pagination */
+.pagination .page-link {
+    color: #5680E9;
+    /* Theme color */
+}
+
+.pagination .active .page-link {
+    background-color: #8860D0;
+    border-color: #8860D0;
+}
+
+/* Workout Exercises Page Enhancements */
+.card {
+    background-color: #F7F7F7;
+    /* Light background for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
+}
+
+.card-title {
+    color: #8860D0;
+    /* Violet theme color for titles */
+}
+
+.card-text {
+    color: #5680E9;
+    /* Blue theme color for text */
+}
+
+.btn-primary {
+    background-color: #5680E9;
+    /* Theme blue for buttons */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #4B6CB7;
+    /* Darker shade of blue for hover */
+}
+
+
+h1 {
+    text-align: center;
+    color: #5680E9;
+    /* Blue theme color */
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #5680E9;
+    /* Adjusted to fit theme color */
+    border-color: #5680E9;
+    /* Adjusted to fit theme color */
+}
+
+.btn-success:hover {
+    background-color: #406AB2;
+    /* Darker shade for hover */
+    border-color: #3a5a9e;
+}
+
+/* Error message styling */
+.text-danger {
+    font-size: 0.875em;
+}

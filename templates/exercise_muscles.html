@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">Exercise Library</h2>
+    <div class="mb-3">
+        <form action="/exercises/search" method="get">
+            <div class="search-container" style="position: relative; display: flex; align-items: center; gap: 10px;">
+                <input id="search-input" name="query" class="form-control" type="search"
+                    placeholder="Search For Exercises" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </div>
+        </form>
+        <div id="search-suggestions" class="list-group list-group-flush"
+            style="position: absolute; z-index: 1000; width: 45%;"></div>
+    </div>
+    <hr>
+    <div id="back-button" class="flex flex-wrap gap-2 mb-4">
+        <span><b>Muscle Group:</b></span>
+        <a href="/exercises" class="btn btn-outline-primary me-1 mb-1">
+            - {{muscle}}
+        </a>
+    </div>
+    <div class="row">
+        {% for exercise in exercises %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="exercise-default">
+                        <h5 class="card-title">{{ exercise.name }}</h5>
+                        <div class="card-img-bottom">
+                            <img src="/static/images/{{exercise.muscle}}.png" class="card-img-right ml-4"
+                                alt="{{exercise.muscle}}">
+                        </div>
+                    </div>
+                    <div class="exercise-details d-none">
+                        <p><b>{{ exercise.name }} </b></p>
+                        <p><b>Type</b>: {{ exercise.type }}</p>
+                        <p><b>Difficulty</b>: {{ exercise.difficulty }}</p>
+                        <p><b>instructions</b>: {{ exercise.instructions }}</p>
+                    </div>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm mt-4 toggle-details">
+                        View Details
+                    </a>
+                    <a href="javascript:void(0);" class="btn btn-success btn-sm mt-4 add-to-workout">
+                        + to Workout
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if pagination.pages > 1 %}
+    <nav>
+        <ul class="pagination">
+            {% if pagination.has_prev %}
+            <li class="page-item"><a class="page-link"
+                    href="{{ url_for('show_muscle_group', muscle=muscle, page=pagination.prev_num) }}">Previous</a></li>
+            {% else %}
+            <li class="page-item disabled"><span class="page-link">Previous</span></li>
+            {% endif %}
+
+            {% for page in pagination.iter_pages() %}
+            {% if page %}
+            {% if page != pagination.page %}
+            <li class="page-item"><a class="page-link"
+                    href="{{ url_for('show_muscle_group', muscle=muscle, page=page) }}">
+                    {{ page }}</a>
+            </li>
+            {% else %}
+            <li class="page-item active"><span class="page-link">{{ page }}</span></li>
+            {% endif %}
+            {% else %}
+            <li class="page-item disabled"><span class="page-link">…</span></li>
+            {% endif %}
+            {% endfor %}
+
+            {% if pagination.has_next %}
+            <li class="page-item"><a class="page-link"
+                    href="{{ url_for('show_muscle_group', muscle=muscle, page=pagination.next_num) }}">Next</a></li>
+            {% else %}
+            <li class="page-item disabled"><span class="page-link">Next</span></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
+</div>
+{% endblock %}
